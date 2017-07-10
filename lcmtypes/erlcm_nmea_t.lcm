@@ -1,0 +1,7 @@
+package erlcm;
+
+struct nmea_t
+{
+    int64_t utime;
+    string  nmea;
+}
