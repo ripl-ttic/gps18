@@ -1,4 +1,4 @@
-package erlcm;
+package gps18;
 
 struct nmea_t
 {

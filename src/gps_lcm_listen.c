@@ -9,7 +9,7 @@
 #include <bot_core/bot_core.h>
 //#include <common/nmea.h>
 
-#include <lcmtypes/erlcm_nmea_t.h>
+#include <lcmtypes/nmea_t.h>
 
 #include "gps_display.h"
 
@@ -21,7 +21,7 @@ typedef struct _state {
 
 static void
 on_nmea(const lcm_recv_buf_t *rbuf, const char *channel,
-        const erlcm_nmea_t *_nmea, void *user)
+        const nmea_t *_nmea, void *user)
 {
     state_t *self = (state_t*) user;
 
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
     //    fprintf(stderr, "error initializing LCM!\n"); return 1; }
 
     // subscribe to GPS NMEA messages
-    erlcm_nmea_t_subscribe( self->lcm, "NMEA", on_nmea, self );
+    nmea_t_subscribe( self->lcm, "NMEA", on_nmea, self );
 
     self->gps_tid = gps_display_start(self->gd);
 
