@@ -15,6 +15,7 @@ Description:
   FILL-ME-IN
 
 Requirements: 
-  FILL-ME-IN
+  * libncurses
+  * libncursesw (verify both are necessary)
 
 License:      FILL-ME-IN
