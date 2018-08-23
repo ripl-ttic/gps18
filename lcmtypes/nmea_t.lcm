@@ -1,4 +1,4 @@
-package gps18;
+package senlcm;
 
 struct nmea_t
 {

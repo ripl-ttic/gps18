@@ -10,7 +10,7 @@
 
 #include <bot_core/bot_core.h>
 
-#include <lcmtypes/nmea_t.h>
+#include <lcmtypes/senlcm_nmea_t.h>
 
 #include "gps.h"
 #include "gps_display.h"
@@ -181,9 +181,9 @@ void callback(void *_context, int64_t ts, const char *buf)
     if (self->gd != NULL)
         gps_display_process_nmea(self->gd, buf);
 
-    nmea_t nm;
+    senlcm_nmea_t nm;
     nm.utime = ts;
     nm.nmea = (char*) buf;
 
-    nmea_t_publish (self->lcm, "NMEA", &nm);
+    senlcm_nmea_t_publish (self->lcm, "NMEA", &nm);
 }
