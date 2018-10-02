@@ -1,35 +1,35 @@
 add_definitions(-std=gnu99)
 
-add_executable(hr-gpsd
+add_executable(gpsd
   gps.c
   main.c
   gps_display.c)
 
-target_link_libraries (hr-gpsd
+target_link_libraries (gpsd
     pthread
     curses
     ${LCMTYPES_LIBS})
 
-pods_use_pkg_config_packages(hr-gpsd
+pods_use_pkg_config_packages(gpsd
   lcm
   bot2-core)
 
-pods_install_executables(hr-gpsd)
+pods_install_executables(gpsd)
 
 
 
 
-add_executable(hr-gps-lcm-listen
+add_executable(gps-lcm-listen
   gps_lcm_listen.c
   gps_display.c)
 
-target_link_libraries (hr-gps-lcm-listen
+target_link_libraries (gps-lcm-listen
     pthread
     curses
     ${LCMTYPES_LIBS})
 
-pods_use_pkg_config_packages(hr-gps-lcm-listen
+pods_use_pkg_config_packages(gps-lcm-listen
   lcm
   bot2-core)
 
-pods_install_executables(hr-gps-lcm-listen)
+pods_install_executables(gps-lcm-listen)
